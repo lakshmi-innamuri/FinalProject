@@ -25,7 +25,7 @@ public class EnemyScript : MonoBehaviour
 		
 		// Disable everything
 		// -- collider
-		collider2D.enabled = false;
+		collider.enabled = false;
 		// -- Moving
 		moveScript.enabled = false;
 		// -- Shooting
@@ -53,6 +53,7 @@ public class EnemyScript : MonoBehaviour
 				if (weapon != null && weapon.enabled && weapon.CanAttack)
 				{
 					weapon.Attack(true);
+					SoundEffectsHelper.Instance.MakeEnemyShotSound();
 				}
 			}
 			
@@ -71,7 +72,7 @@ public class EnemyScript : MonoBehaviour
 		
 		// Enable everything
 		// -- Collider
-		collider2D.enabled = true;
+		collider.enabled = true;
 		// -- Moving
 		moveScript.enabled = true;
 		// -- Shooting
